@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block titolo %}Crea Post{% endblock %}
+
+{% block contenuto %}
+
+    <h1>Crea un Nuovo Post</h1>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form method="POST" novalidate>
+                        <div class="form-group">
+                            {{form.titolo.label}}
+                            {{form.titolo(class="form-control")}}
+                            {% if form.titolo.errors %}
+                                {% for error in form.titolo.errors %}
+                                <span class="text-danger">{{error}}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{form.descrizione.label}}
+                            {{form.descrizione(class="form-control")}}
+                            {% if form.descrizione.errors %}
+                                {% for error in form.descrizione.errors %}
+                                <span class="text-danger">{{error}}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{form.body.label}}
+                            {{form.body(class="form-control", rows=7)}}
+                            {% if form.body.errors %}
+                                {% for error in form.body.errors %}
+                                <span class="text-danger">{{error}}</span>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {{ form.submit(class="btn btn-primary")}}
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+
+{% endblock %}

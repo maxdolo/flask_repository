@@ -1,0 +1,35 @@
+
+flask run                           |-->avvia il Server di sviluppo
+flask run --host=192.168.1.187      |-->avvia il Server di sviluppo dall'IP locale
+
+tastoDxMouse -->Ispeziona -->Network -->Disable cache -->spuntare       |-->disabilita la cache
+
+
+
+
+flask db init                           |-->inizializza il Database e crea la directory migrations
+flask db migrate -m "il_mio_messaggio"  |-->crea il DataBase blog.db
+                                        |-->crea la Migration (una modifica allo Schema del DataBase)
+flask db upgrade                        |-->applica la modifica allo Schema del DataBase, creando
+                                            le tabelle User e Post
+flask db downgrade                      |-->elimina l'ultima modifica al DataBase
+
+- Creare una Nuova Istanza di User:
+flask shell
+from Blog import db
+from Blog.models import Post, User
+u1 = User(username="massimo", email="massimo@gmail.com", password="12345")
+p1 = Post(titolo="Primo Post", body="Il mio Primo Post è questo")
+db.session.add(u1)
+db.session.commit()
+
+
+
+
+
+
+py -m pip uninstall [options] <package>
+
+Sezione 2: Creazione di una Web App Blog Completa con Flask e Python
+Michele Saba
+UDEMY
